@@ -1,6 +1,13 @@
-const init = (url = "ws://192.168.178.192:3000/stomp")=>{
+const init = (url = "ws://192.168.178.192:8080/")=>{
         console.log(url)
-        const client = Stomp.client(url)
+        const 
+            client = Stomp.client(url),
+            cred = {
+                user:"",
+                pass:""
+            }
+
+        client.connect({},{},update())
     },
     update = (data)=>{
         console.log("update",data)

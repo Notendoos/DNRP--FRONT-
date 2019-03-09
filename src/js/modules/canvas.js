@@ -1,5 +1,6 @@
 import * as helper from "../modules/helper.js"
 import * as client from "../modules/client.js"
+import * as render from "../modules/render.js"
 const 
     canvas = document.getElementById("dnrp"),
     ctx = canvas.getContext('2d'),
@@ -18,6 +19,8 @@ const
         }
 
         ctx.putImageData(canvasData,0,0)
+
+        render.init(settings)
        
         canvas.addEventListener("click",(e)=>{
             set(e.layerX,e.layerY)
@@ -55,6 +58,8 @@ const
             colors
         })
     }
+
+
 // (()=>{
 //   setInterval(
 //     ()=>{
@@ -72,6 +77,7 @@ const
 //             Math.trunc(Math.random()*canvas.width)
 //         )  
 //     }
-//     ,1000)
+//     ,100)
 // })()
+
 export {init,get,set}

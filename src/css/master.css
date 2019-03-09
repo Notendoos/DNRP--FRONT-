@@ -60,6 +60,7 @@ canvas{
 input{
     display: block;
     margin: 1rem auto;
+    width: 20rem;
 }
 
 button{
@@ -91,6 +92,62 @@ button:active{
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: crisp-edges;
+}
+
+/* 
+    Pallette
+*/
+
+.pallette{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left: calc(50% + 10rem);
+    top: 0;
+    grid-gap: 1rem;
+    padding: 2rem;
+    background: var(--mainWhite);
+    height: 20rem;
+}
+
+.pallette .swatch{
+    margin: 0 auto;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    transition: .3s ease all;
+}
+
+.pallette .swatch:checked{
+    transform: scale(1.1) rotate(45deg);
+}
+
+.overlay{
+    position: absolute;
+    height: 20rem;
+    width: 20rem;
+    top: 0;
+    left: calc(50% - 10rem);
+    z-index: 99;
+    pointer-events: none;
+}
+
+.overlay [class*="-line"]{
+    position: absolute;
+}
+
+.overlay .h-line{
+    border-top: 1px solid rgba(0,0,0,.15);
+    height: 1px;
+    width: 20rem;
+}
+
+.overlay .v-line{
+    border-left: 1px solid rgba(0,0,0,.15);
+    height: 20rem;
+    width: 1px;
 }
 
 /* 
