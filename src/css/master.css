@@ -104,11 +104,11 @@ button:active{
     top: 0;
     grid-gap: 1rem;
     padding: 1.25rem;
-    background: var(--mainWhite);
     height: 20rem;
 }
 
-.pallette .swatch{
+.pallette .swatch,
+.pallette .selected{
     margin: 0 auto;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -118,8 +118,44 @@ button:active{
     transition: .3s ease all;
 }
 
-.pallette .swatch:checked{
-    transform: scale(1.1) rotate(45deg);
+.pallette .selected{
+    position: absolute;
+    opacity: 0;
+    z-index: 99;
+}
+
+.pallette .selected:after,
+.pallette .selected:before{
+    content: "";
+    display: block;
+    height: 1.5rem;
+    width: .5rem;
+    position: absolute;
+    top: calc(50% - .75rem);
+    left: calc(50% - .25rem);
+    transition: .3s ease all;
+    border: 1px solid black;
+    background: white;
+}
+
+.pallette .selected:after{
+    transform: rotate(45deg)
+}
+
+.pallette .selected:before{
+    transform: rotate(-45deg)
+}
+
+.pallette .selected.turn:after{
+    transform: rotate(90deg)
+}
+
+.pallette .selected.turn:before{
+    transform: rotate(0deg)
+}
+
+.pallette .selected.active{
+    opacity: 1;
 }
 
 .overlay{
@@ -152,6 +188,10 @@ input[type="color"]{
     width: 100%;
     height: 2rem;
     grid-area: 1/1/3/3;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
 }
 
 /* 

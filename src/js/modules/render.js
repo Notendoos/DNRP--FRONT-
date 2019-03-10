@@ -7,11 +7,15 @@ const
         const
             palletteCont = document.createElement("div"),
             appCont = document.querySelector("#app"),
-            curColor = document.createElement("input")
+            curColor = document.createElement("input"),
+            aSwatch = document.createElement("div")
 
-            curColor.type = "color"
+        curColor.type = "color"
 
-            palletteCont.appendChild(curColor)    
+        aSwatch.classList.add("selected")
+
+        palletteCont.appendChild(aSwatch)
+        palletteCont.appendChild(curColor)    
 
         colors.forEach(el => {
             const
@@ -28,6 +32,11 @@ const
                 const
                     input = document.querySelector("input[type=color]")
                 input.value = swatch.getAttribute("data-color")
+                
+                aSwatch.style.setProperty("top",`${e.target.offsetTop}px`)
+                aSwatch.style.setProperty("left",`${e.target.offsetLeft}px`)
+                aSwatch.classList.add("active")
+                aSwatch.classList.toggle("turn")
             })
 
             palletteCont.appendChild(swatch)
