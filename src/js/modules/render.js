@@ -5,8 +5,13 @@ const
     },
     pallette = (colors)=>{
         const
-            palleteCont = document.createElement("div"),
-            appCont = document.querySelector("#app")
+            palletteCont = document.createElement("div"),
+            appCont = document.querySelector("#app"),
+            curColor = document.createElement("input")
+
+            curColor.type = "color"
+
+            palletteCont.appendChild(curColor)    
 
         colors.forEach(el => {
             const
@@ -25,27 +30,34 @@ const
                 input.value = swatch.getAttribute("data-color")
             })
 
-            palleteCont.appendChild(swatch)
+            palletteCont.appendChild(swatch)
         })
 
-        palleteCont.classList.add("pallette")
+        palletteCont.classList.add("pallette")
         
-        appCont.appendChild(palleteCont)
+        appCont.appendChild(palletteCont)
     },
     grid = (settings)=>{
         const
             gridCont = document.createElement("div"),
-            appCont = document.querySelector("#app")
+            appCont = document.querySelector("#app"),
+            canvas = document.querySelector("canvas")
         
         gridCont.classList.add("overlay")
+
+
         
         for(let i=0;i<settings.width-1;i++){
             let
                 hline = document.createElement("div"),
-                vline = document.createElement("div")
+                vline = document.createElement("div"),
+                gutterPer = i/settings.width,
+                gutter = gutterPer*canvas.scrollHeight,
+                offset = (1/settings.width)*canvas.scrollHeight
+
             
-            hline.style.setProperty("top",`${i+1}rem`)
-            vline.style.setProperty("left",`${i+1}rem`)
+            hline.style.setProperty("top",`${gutter+offset-.5}px`)
+            vline.style.setProperty("left",`${gutter+offset-.5}px`)
 
             hline.classList.add("h-line")
             vline.classList.add("v-line")

@@ -31,7 +31,6 @@ const
                     decoded = btoa(decodeURIComponent(escape(v)))
                 newAn.src = `data:image/png;base64,${decoded}`
             }
-
         
             newAn.appendChild(newImg)
             
