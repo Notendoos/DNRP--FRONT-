@@ -15,8 +15,8 @@ const init = ()=>{
             }else{
                 canvas.init(settings)
                 controls.init(settings)
-                // client.init()
-            } 
+                client.init()
+            }
         }
     })
 }

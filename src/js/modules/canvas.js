@@ -1,7 +1,7 @@
 import * as helper from "../modules/helper.js"
 import * as client from "../modules/client.js"
 import * as render from "../modules/render.js"
-const 
+const
     canvas = document.getElementById("dnrp"),
     ctx = canvas.getContext('2d'),
     init = (settings)=>{
@@ -11,10 +11,9 @@ const
         clear(settings)
 
         render.init(settings)
-       
+
         canvas.addEventListener("click",(e)=>{
             set(e.layerX,e.layerY)
-            // get(e.layerX,e.layerY)        
         })
     },
     get = (x,y)=>{
@@ -28,11 +27,11 @@ const
             console.log(pixel,coords)
     },
     set = (x,y)=>{
-        const 
+        const
             pixel = ctx.createImageData(1,1),
             colorPicker = document.querySelector("input[type=color]"),
             colors = helper.hexToRgb(colorPicker.value)
-        
+
         pixel.data[0] = colors.r
         pixel.data[1] = colors.g
         pixel.data[2] = colors.b
@@ -41,17 +40,19 @@ const
         ctx.putImageData(pixel,Math.trunc((x/canvas.scrollWidth)*canvas.width),Math.trunc((y/canvas.scrollHeight)*canvas.height))
 
         client.update({
-            coords:{
-                x:Math.trunc((x/canvas.scrollWidth)*canvas.width),
-                y:Math.trunc((y/canvas.scrollHeight)*canvas.height)
-            },
-            colors
+            pixel:{
+                coords:{
+                    x:Math.trunc((x/canvas.scrollWidth)*canvas.width),
+                    y:Math.trunc((y/canvas.scrollHeight)*canvas.height)
+                },
+                colors
+            }
         })
     },
     clear = (settings)=>{
-        let 
+        let
             canvasData = ctx.createImageData(settings.height,settings.width)
-        
+
         for (let i = 0; i < canvasData.data.length; i+=4) {
             canvasData.data[i] = 255
             canvasData.data[i+1] = 255
@@ -66,7 +67,7 @@ const
 // (()=>{
 //   setInterval(
 //     ()=>{
-//         let 
+//         let
 //             pixel = ctx.createImageData(1,1)
 
 //         pixel.data[0] = Math.trunc(Math.random()*255)
@@ -78,7 +79,7 @@ const
 //             pixel,
 //             Math.trunc(Math.random()*canvas.height),
 //             Math.trunc(Math.random()*canvas.width)
-//         )  
+//         )
 //     }
 //     ,50)
 // })()

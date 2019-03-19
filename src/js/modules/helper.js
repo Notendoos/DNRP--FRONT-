@@ -1,4 +1,4 @@
-const 
+const
     log = (e)=>{
         console.log(e)
     },
@@ -6,15 +6,17 @@ const
         let colors =[]
         for (let i = 0; i < data.data.length; i += 4) {
             let obj ={
-                coord:{
-                    x:i%width*4,
-                    y:Math.trunc(i/width*4)
-                },
-                color:{
-                    red: data.data[0],
-                    green: data.data[1],
-                    blue: data.data[2],
-                    alpha: 225
+                pixel:{
+                    coord:{
+                        x:i%width*4,
+                        y:Math.trunc(i/width*4)
+                    },
+                    color:{
+                        red: data.data[0],
+                        green: data.data[1],
+                        blue: data.data[2],
+                        alpha: 225
+                    }
                 }
             }
             colors.push(obj)
@@ -27,20 +29,20 @@ const
             r: parseInt(result[1], 16),
             g: parseInt(result[2], 16),
             b: parseInt(result[3], 16)
-        } : null 
+        } : null
     },
     createShot = ()=>{
         const
             canvas = document.querySelector("canvas"),
             snapCont = document.querySelector("#snapshot")
-        let 
+        let
             img = canvas.toDataURL("image/png"),
             newImg = document.createElement("img"),
             newAn = document.createElement("a"),
             fr = new FileReader()
-        
+
         snapCont.innerHTML = ""
-        
+
         newImg.src = img
         newImg.classList.add("snapshot")
 
@@ -55,9 +57,9 @@ const
                 decoded = btoa(decodeURIComponent(escape(v)))
             newAn.src = `data:image/png;base64,${decoded}`
         }
-    
+
         newAn.appendChild(newImg)
-        
+
         snapCont.appendChild(newAn)
     }
 

@@ -12,6 +12,7 @@
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap;
 }
 
 :root{
@@ -27,7 +28,7 @@ body{
     animation: 30s slide ease infinite;
 }
 
-/* 
+/*
     Header
 */
 
@@ -98,7 +99,7 @@ button:active{
     top: 5rem;
 }
 
-/* 
+/*
     Pallette
 */
 
@@ -200,7 +201,7 @@ input[type="color"]{
     border: none;
 }
 
-/* 
+/*
     Anims
 */
 
