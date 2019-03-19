@@ -45,7 +45,7 @@ const
                     x:Math.trunc((x/canvas.scrollWidth)*canvas.width),
                     y:Math.trunc((y/canvas.scrollHeight)*canvas.height)
                 },
-                colors
+                color:colors
             }
         })
     },

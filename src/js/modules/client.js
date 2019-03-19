@@ -38,7 +38,7 @@ const
             canvas = document.getElementById("dnrp"),
             ctx = canvas.getContext('2d'),
             pixel = ctx.createImageData(1,1),
-            newPixels = data.pixel.flat().map(el => [el.pixel.color.r,el.pixel.color.g,el.pixel.color.b,255]).flat()
+            newPixels = [data.pixel.color.r,data.pixel.color.g,data.pixel.color.b,255]
 
             for (var i = 0; i < newPixels.length; i++) {
                 pixel.data[i] = newPixels[i]
