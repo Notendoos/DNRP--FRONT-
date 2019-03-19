@@ -37,14 +37,14 @@ const
         let
             canvas = document.getElementById("dnrp"),
             ctx = canvas.getContext('2d'),
-            pixel = ctx.createImageData(20,20),
-            newPixels = data.canvas.pixels.flat().map(el => [el.pixel.color.r,el.pixel.color.g,el.pixel.color.b,255]).flat()
+            pixel = ctx.createImageData(1,1),
+            newPixels = data.pixel.flat().map(el => [el.pixel.color.r,el.pixel.color.g,el.pixel.color.b,255]).flat()
 
             for (var i = 0; i < newPixels.length; i++) {
                 pixel.data[i] = newPixels[i]
             }
 
-        ctx.putImageData(pixel,0,0)
+        ctx.putImageData(pixel,data.pixel.coords.x,data.pixel.coords.y)
     },
     connected = (data)=>{
         console.log("connected")
