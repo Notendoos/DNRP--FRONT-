@@ -2,7 +2,7 @@ import * as canvas from "../modules/canvas.js"
 const
     url = "http://192.168.2.13:8080/stomp",
     socket = new SockJS(url)
-var
+let
     stompClient = Stomp.over(socket)
 
 const
@@ -11,7 +11,7 @@ const
     },
     update = (data)=>{
         console.log("update",data)
-        stompClient.send('/app/pixel-update/',{},JSON.stringify(data))
+        stompClient.send('/app/pixel-update',{},JSON.stringify(data))
     },
     canvasUpdate = (data)=>{
         console.log(data)
