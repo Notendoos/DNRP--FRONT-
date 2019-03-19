@@ -53,8 +53,6 @@ const
             canvas = document.querySelector("canvas")
         
         gridCont.classList.add("overlay")
-
-
         
         for(let i=0;i<settings.width-1;i++){
             let

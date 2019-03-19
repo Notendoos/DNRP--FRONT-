@@ -92,6 +92,12 @@ button:active{
     image-rendering: crisp-edges;
 }
 
+#snapshot{
+    position: absolute;
+    left: calc(50% - 21rem);
+    top: 5rem;
+}
+
 /* 
     Pallette
 */

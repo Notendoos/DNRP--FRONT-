@@ -8,17 +8,7 @@ const
         canvas.height = settings.height
         canvas.width = settings.width
 
-        let 
-            canvasData = ctx.getImageData(1,1,settings.height,settings.width)
-        
-        for (let i = 0; i < canvasData.data.length; i+=4) {
-            canvasData.data[i] = 255
-            canvasData.data[i+1] = 255
-            canvasData.data[i+2] = 255
-            canvasData.data[i+3] = 255
-        }
-
-        ctx.putImageData(canvasData,0,0)
+        clear(settings)
 
         render.init(settings)
        
@@ -39,7 +29,7 @@ const
     },
     set = (x,y)=>{
         const 
-            pixel = ctx.getImageData(1,1,1,1),
+            pixel = ctx.createImageData(1,1),
             colorPicker = document.querySelector("input[type=color]"),
             colors = helper.hexToRgb(colorPicker.value)
         
@@ -57,6 +47,19 @@ const
             },
             colors
         })
+    },
+    clear = (settings)=>{
+        let 
+            canvasData = ctx.createImageData(settings.height,settings.width)
+        
+        for (let i = 0; i < canvasData.data.length; i+=4) {
+            canvasData.data[i] = 255
+            canvasData.data[i+1] = 255
+            canvasData.data[i+2] = 255
+            canvasData.data[i+3] = 255
+        }
+
+        ctx.putImageData(canvasData,0,0)
     }
 
 
@@ -77,7 +80,7 @@ const
 //             Math.trunc(Math.random()*canvas.width)
 //         )  
 //     }
-//     ,100)
+//     ,50)
 // })()
 
-export {init,get,set}
+export {init,get,set,clear}

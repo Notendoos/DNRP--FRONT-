@@ -1,6 +1,9 @@
 import * as canvas from "./canvas.js"
 import * as controls from "./controls.js"
 import * as client from "./client.js"
+
+const settings = {width:20,height:20}
+
 const init = ()=>{
     routie({
         "u-*":(username)=>{
@@ -10,11 +13,8 @@ const init = ()=>{
             if(hash != ""){
                 window.location.hash = ""
             }else{
-                canvas.init({
-                    width:20,
-                    height:20
-                })
-                controls.init()
+                canvas.init(settings)
+                controls.init(settings)
                 // client.init()
             } 
         }
