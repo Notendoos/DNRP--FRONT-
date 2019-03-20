@@ -53,6 +53,7 @@ canvas{
     margin: auto;
     height: 20rem;
     width: 20rem;
+    image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: crisp-edges;
@@ -88,6 +89,7 @@ button:active{
 .snapshot{
     height: 10rem;
     width: 10rem;
+    image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: crisp-edges;

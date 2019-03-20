@@ -1,6 +1,6 @@
 import * as canvas from "../modules/canvas.js"
 const
-    url = "http://192.168.2.13:8080/stomp",
+    url = "http://145.28.224.59:8080/stomp",
     socket = new SockJS(url)
 let
     stompClient = Stomp.over(socket)

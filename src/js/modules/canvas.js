@@ -42,8 +42,8 @@ const
         client.update({
             pixel:{
                 coords:{
-                    x:Math.trunc((x/canvas.scrollWidth)*canvas.width),
-                    y:Math.trunc((y/canvas.scrollHeight)*canvas.height)
+                    y:Math.trunc((x/canvas.scrollWidth)*canvas.width),
+                    x:Math.trunc((y/canvas.scrollHeight)*canvas.height)
                 },
                 color:colors
             }
