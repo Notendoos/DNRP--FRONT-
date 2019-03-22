@@ -1,6 +1,6 @@
 import * as canvas from "../modules/canvas.js"
 const
-    url = "http://145.28.224.59:8080/stomp",
+    url = "http://145.28.153.101:8080/stomp",
     socket = new SockJS(url)
 let
     stompClient = Stomp.over(socket)
@@ -24,6 +24,17 @@ const
             for (var i = 0; i < newPixels.length; i++) {
                 pixel.data[i] = newPixels[i]
             }
+
+            // newPixels = data.canvas.pixels.flat().map(el => el).flat()
+
+            // for (var i = 0; i < newPixels.length; i++) {
+            //     console.log(newPixels)
+            //     let pixelN = newPixels[i].pixel
+            //     pixel.data[(i+(pixelN.coords.x+(pixelN.coords.y*19)))]   = pixelN.color.r
+            //     pixel.data[(i+(pixelN.coords.x+(pixelN.coords.y*19)))+1] = pixelN.color.g
+            //     pixel.data[(i+(pixelN.coords.x+(pixelN.coords.y*19)))+2] = pixelN.color.b
+            //     pixel.data[(i+(pixelN.coords.x+(pixelN.coords.y*19)))+3] = 255
+            // }
 
         ctx.putImageData(pixel,0,0)
 
